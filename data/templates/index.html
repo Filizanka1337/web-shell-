@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remote Command Execution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        p.error {
+            color: red;
+        }
+
+        #shutdown-button {
+            background-color: #ff3b3b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wykonaj Komendę</h1>
+    <form method="POST" action="/execute">
+        <input type="text" name="command" placeholder="Wprowadź komendę" required>
+        <input type="submit" value="Wykonaj">
+    </form>
+    <h2>Wynik:</h2>
+    <pre>{{ result }}</pre>
+    <p class="error">{{ error }}</p>
+    <h1>Zamknij System</h1>
+    <form method="POST" action="/shutdown">
+        <input type="submit" id="shutdown-button" value="Zamknij System">
+    </form>
+</body>
+</html>
